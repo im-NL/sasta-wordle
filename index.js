@@ -10,8 +10,8 @@ function addletter(letter) {
     // i did not meet with medha yash divye because divye decided to not wake up
     for (var char = 1; char < 6; char++) {
         var space = document.getElementById("guess" + guesses + "char" + char);
-        if (space.innerText == "") {
-            space.innerHTML += letter;
+        if (space.innerHTML == "&nbsp;") {
+            space.innerHTML = letter;
             break;
         }
     }
@@ -19,8 +19,8 @@ function addletter(letter) {
 function rmvchar() {
     for (var char = 5; char > 0; char--) {
         var space = document.getElementById("guess" + guesses + "char" + char);
-        if (!(space.innerHTML == "")) {
-            space.innerText = "";
+        if (!(space.innerHTML == "&nbsp;")) {
+            space.innerHTML = "&nbsp;";
             break;
         }
     }
@@ -33,7 +33,7 @@ function check() {
     var spaces_filled = 0;
     for (var i = 1; i < 6; i++) {
         var checker = document.getElementById("guess" + guesses + "char" + i);
-        if (!(checker.innerHTML == "")) {
+        if (!(checker.innerHTML == "&nbsp;")) {
             spaces_filled += 1;
         }
     }

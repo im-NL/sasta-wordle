@@ -1,8 +1,36 @@
-/* literally nothing in this file allow it */
+
+html {
+    width: 100%;
+    height: 100%;
+    background-color: #1a1a1b;
+}
+
+
 .present {
     background-color: yellow;
 }
 
 .correct {
     background-color: greenyellow;
+}
+
+.nav {
+    text-align: center;
+    width: 100%;
+}
+
+.nav h3 {
+    color: aliceblue;
+}
+
+.guessing-space {
+    text-align: center;
+}
+
+.guessing-space div span {
+    color: white;
+}
+
+.keyboard {
+    text-align: center;
 }

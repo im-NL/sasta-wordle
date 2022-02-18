@@ -38,15 +38,19 @@ function check() {
         }
     }
     if (spaces_filled == 5) {
+        var checkword = word;
         for (var i = 1; i < 6; i++) {
             var checker = document.getElementById("guess" + guesses + "char" + i);
-            if (word.includes(checker.innerHTML)) {
+            if (word.includes(checker.innerHTML) && checkword.includes(checker.innerHTML)) {
                 if (!(checker.innerHTML == word[i - 1])) {
                     checker.classList.add("present");
+                    checkword = checkword.replace(checker.innerHTML, "");
                 }
+                checkword = checkword.replace(checker.innerHTML, "");
             }
             if (checker.innerHTML == word[i - 1]) {
                 checker.classList.add("correct");
+                checkword = checkword.replace(checker.innerHTML, "");
             }
         }
         guesses += 1;

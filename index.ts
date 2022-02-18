@@ -44,15 +44,19 @@ function check() {
         }
     }
     if(spaces_filled==5) {
+        let checkword = word
         for(let i=1; i<6; i++) {
             let checker = document.getElementById("guess" + guesses + "char" + i)
-            if(word.includes(checker.innerHTML)) {
+            if(word.includes(checker.innerHTML) && checkword.includes(checker.innerHTML)) {
                 if(!(checker.innerHTML == word[i-1])) {
                     checker.classList.add("present")
+                    checkword = checkword.replace(checker.innerHTML, "")
                 }
+                checkword = checkword.replace(checker.innerHTML, "")
             }
             if(checker.innerHTML == word[i-1]) {
                 checker.classList.add("correct")
+                checkword = checkword.replace(checker.innerHTML, "")
             }
         }
         guesses +=1 

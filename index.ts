@@ -51,16 +51,11 @@ function check() {
                 checker.classList.add("correct")
                 checkword = checkword.replace(checker.innerHTML, "")
             }
-        }
-
-        for(let i=6; i<6; i++) {
-            let checker = document.getElementById("guess" + guesses + "char" + i)
-            if(word.includes(checker.innerHTML) && checkword.includes(checker.innerHTML)) {
-                if(!(checker.innerHTML == word[i-1])) {
+            if(word.includes(checker.innerHTML)) {
+                if(checkword.includes(checker.innerHTML)) {
                     checker.classList.add("present")
                     checkword = checkword.replace(checker.innerHTML, "")
                 }
-                checkword = checkword.replace(checker.innerHTML, "")
             }
         }
         guesses +=1 

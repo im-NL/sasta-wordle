@@ -14,7 +14,7 @@ function addletter(letter) {
     for(let char=1; char<6; char++) {
         let space = document.getElementById("guess" + guesses + "char"+ char)
         if(space.innerHTML == "&nbsp;") {
-            space.innerHTML= letter
+            space.innerHTML= letter.toUpperCase()
             break
         }
     }

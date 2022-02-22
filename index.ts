@@ -9,8 +9,6 @@ let row2 = document.getElementById("row2")
 let row3 = document.getElementById("row3")
 
 function addletter(letter) {
-    // banayenge kal after meeting w medha yash divye 
-    // i did not meet with medha yash divye because divye decided to not wake up
     for(let char=1; char<6; char++) {
         let space = document.getElementById("guess" + guesses + "char"+ char)
         if(space.innerHTML == "&nbsp;") {
@@ -35,15 +33,22 @@ function addbutton(char, row) {
     row_node.innerHTML += '<button id="' + char + '-key" class="key">' + char.toUpperCase() + "</button>"
 }
 
+function isvalid(word) {
+    // function that checks whether word is an actual word or random bs 
+    return true
+}
+
 function check() {
     let spaces_filled = 0
+    let word_guessed = ""
     for(let i=1; i<6; i++) {
         let checker = document.getElementById("guess" + guesses + "char" + i)
         if(!(checker.innerHTML=="&nbsp;")) {
             spaces_filled +=1
+            word_guessed += checker.innerHTML
         }
     }
-    if(spaces_filled==5) {
+    if(spaces_filled==5 && isvalid(word_guessed)) {
         let checkword = word
         for(let i=1; i<6; i++) {
             let checker = document.getElementById("guess" + guesses + "char" + i)

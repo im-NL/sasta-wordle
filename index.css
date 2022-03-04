@@ -10,6 +10,10 @@ html {
     background-color: #b59f3b !important; 
 }
 
+.notpresent {
+    background-color: grey !important;
+}
+
 .correct {
     background-color: #538d4e !important; 
 }

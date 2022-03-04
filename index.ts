@@ -52,15 +52,19 @@ function check() {
         let checkword = word
         for(let i=1; i<6; i++) {
             let checker = document.getElementById("guess" + guesses + "char" + i)
-            if(checker.innerHTML == word[i-1]) {
+            let key = document.getElementById(checker.innerHTML.toLowerCase() + "-key")
+            if(checker.innerHTML.toLowerCase() == word[i-1]) {
                 checker.classList.add("correct")
-                checkword = checkword.replace(checker.innerHTML, "")
-            }
-            if(word.includes(checker.innerHTML)) {
-                if(checkword.includes(checker.innerHTML)) {
+                key.classList.add("correct")
+                checkword = checkword.replace(checker.innerHTML.toLowerCase(), "")
+            } else if(word.includes(checker.innerHTML.toLowerCase())) {
+                if(checkword.includes(checker.innerHTML.toLowerCase())) {
                     checker.classList.add("present")
-                    checkword = checkword.replace(checker.innerHTML, "")
+                    key.classList.add("present")
+                    checkword = checkword.replace(checker.innerHTML.toLocaleLowerCase(), "")
                 }
+            } else {
+                key.classList.add("notpresent")
             }
         }
         guesses +=1 

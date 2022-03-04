@@ -6,12 +6,10 @@ var row1 = document.getElementById("row1");
 var row2 = document.getElementById("row2");
 var row3 = document.getElementById("row3");
 function addletter(letter) {
-    // banayenge kal after meeting w medha yash divye 
-    // i did not meet with medha yash divye because divye decided to not wake up
     for (var char = 1; char < 6; char++) {
         var space = document.getElementById("guess" + guesses + "char" + char);
         if (space.innerHTML == "&nbsp;") {
-            space.innerHTML = letter;
+            space.innerHTML = letter.toUpperCase();
             break;
         }
     }
@@ -29,27 +27,39 @@ function addbutton(char, row) {
     var row_node = document.getElementById("row" + row);
     row_node.innerHTML += '<button id="' + char + '-key" class="key">' + char.toUpperCase() + "</button>";
 }
+function isvalid(word) {
+    // function that checks whether word is an actual word or random bs 
+    return true;
+}
 function check() {
     var spaces_filled = 0;
+    var word_guessed = "";
     for (var i = 1; i < 6; i++) {
         var checker = document.getElementById("guess" + guesses + "char" + i);
         if (!(checker.innerHTML == "&nbsp;")) {
             spaces_filled += 1;
+            word_guessed += checker.innerHTML;
         }
     }
-    if (spaces_filled == 5) {
+    if (spaces_filled == 5 && isvalid(word_guessed)) {
         var checkword = word;
         for (var i = 1; i < 6; i++) {
             var checker = document.getElementById("guess" + guesses + "char" + i);
-            if (checker.innerHTML == word[i - 1]) {
+            var key = document.getElementById(checker.innerHTML.toLowerCase() + "-key");
+            if (checker.innerHTML.toLowerCase() == word[i - 1]) {
                 checker.classList.add("correct");
-                checkword = checkword.replace(checker.innerHTML, "");
+                key.classList.add("correct");
+                checkword = checkword.replace(checker.innerHTML.toLowerCase(), "");
             }
-            if (word.includes(checker.innerHTML)) {
-                if (checkword.includes(checker.innerHTML)) {
+            else if (word.includes(checker.innerHTML.toLowerCase())) {
+                if (checkword.includes(checker.innerHTML.toLowerCase())) {
                     checker.classList.add("present");
-                    checkword = checkword.replace(checker.innerHTML, "");
+                    key.classList.add("present");
+                    checkword = checkword.replace(checker.innerHTML.toLocaleLowerCase(), "");
                 }
+            }
+            else {
+                key.classList.add("notpresent");
             }
         }
         guesses += 1;

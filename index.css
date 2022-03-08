@@ -6,12 +6,13 @@ html {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+
 .present {
     background-color: #b59f3b !important; 
 }
 
 .notpresent {
-    background-color: grey !important;
+    background-color: #3a3a3c !important;
 }
 
 .correct {
@@ -33,7 +34,7 @@ html {
 }
 
 .guessing-space {
-    margin-top: 50px;
+    margin-top: 15px;
     text-align: center;
 }
 
@@ -76,4 +77,42 @@ html {
 
 .funcbuttons {
     display: inline-flex;
+}
+
+.popup {
+    background: #c8c8c8;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+.flexflex {
+    position:relative;
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items : baseline;
+    color: #121213;
+}
+
+.win {
+    position: absolute;
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    bottom: 0%;
+    right: 0%;
+    height: 100%;
+    width: 100%;
+}
+
+.winmessage {
+    position: absolute;
+    transition:ease-in 1s;
+    height: 33%;
+    width: 50%;
+    background-color: #3a3a3c;
+    text-align: center;
+    /* visibility: hidden; */
 }

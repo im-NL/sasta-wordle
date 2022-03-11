@@ -73,14 +73,13 @@ function check() {
                 }
                 guesses +=1 
             } else {
-                // add a class to the pop up div, then remove it in a second
                 let popup = document.getElementById("popup")
                 popup.classList.add("popup") 
                 setTimeout(() => {popup.classList.remove("popup")}, 2000)
             }
         } else {
             document.getElementById("losepopup").classList.remove("lose")
-            document.getElementById("losepopup").classList.remove("visible-lose")
+            document.getElementById("losepopup").classList.add("visible-lose")
         }
     }
 }

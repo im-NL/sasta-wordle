@@ -105,14 +105,95 @@ html {
     right: 0%;
     height: 100%;
     width: 100%;
+    visibility: hidden;
+}
+
+
+.visible-win {
+    position: absolute;
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    bottom: 0%;
+    right: 0%;
+    height: 100%;
+    width: 100%;
 }
 
 .winmessage {
     position: absolute;
     transition:ease-in 1s;
     height: 33%;
-    width: 50%;
+    width: 40%;
     background-color: #3a3a3c;
     text-align: center;
-    /* visibility: hidden; */
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.5fr 0.7fr 0.9fr;
+}
+
+.winmessage span {
+    margin: 10px;
+    text-decoration: none;
+}
+
+.winmessage span a{
+    color: #c8c8c8;
+}
+
+.winmessage span a on:hover{
+    color: #AEC6CF;
+}
+
+
+.lose {
+    position: absolute;
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    bottom: 0%;
+    right: 0%;
+    height: 100%;
+    width: 100%;
+    visibility: hidden;
+}
+
+
+.visible-lose {
+    position: absolute;
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    bottom: 0%;
+    right: 0%;
+    height: 100%;
+    width: 100%;
+}
+
+.losemessage {
+    position: absolute;
+    transition:ease-in 1s;
+    height: 33%;
+    width: 40%;
+    background-color: #3a3a3c;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.5fr 0.7fr 0.9fr;
+}
+
+.losemessage span {
+    margin: 10px;
+    text-decoration: none;
+}
+
+.losemessage span a{
+    color: #c8c8c8;
+}
+
+.losemessage span a on:hover{
+    color: #AEC6CF;
 }

@@ -67,7 +67,8 @@ function check() {
                         key.classList.add("notpresent")
                     }
                 }
-                if(correct_count == 5) {
+                if(correct_count == 5) {                    
+                    document.getElementById("word").innerHTML = "The word was " + "<b>" +word + "</b>"
                     document.getElementById("winpopup").classList.remove("win")
                     document.getElementById("winpopup").classList.add("visible-win")
                 }
@@ -78,6 +79,7 @@ function check() {
                 setTimeout(() => {popup.classList.remove("popup")}, 2000)
             }
         } else {
+            document.getElementById("loseword").innerHTML = "You lost....The word was " + "<b>" +word + "</b>"
             document.getElementById("losepopup").classList.remove("lose")
             document.getElementById("losepopup").classList.add("visible-lose")
         }
@@ -107,4 +109,19 @@ enter.addEventListener("click", function() {
 let backspace = document.getElementById("backspace")
 backspace.addEventListener("click", function() {
     rmvchar()
+})
+
+document.addEventListener("keydown", function(key) {
+    let pressed = key["key"]
+    if(pressed == "Enter") {
+        check()
+    } else if(pressed == "Backspace") {
+        rmvchar()
+    } else {
+        rows.forEach(element => {
+            if(element.includes(pressed.toLowerCase())) {
+                addletter(pressed)
+            }
+        });
+    }
 })

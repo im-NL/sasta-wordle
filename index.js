@@ -65,6 +65,7 @@ function check() {
                     }
                 }
                 if (correct_count == 5) {
+                    document.getElementById("word").innerHTML = "The word was " + "<b>" + word + "</b>";
                     document.getElementById("winpopup").classList.remove("win");
                     document.getElementById("winpopup").classList.add("visible-win");
                 }
@@ -77,6 +78,7 @@ function check() {
             }
         }
         else {
+            document.getElementById("loseword").innerHTML = "You lost....The word was " + "<b>" + word + "</b>";
             document.getElementById("losepopup").classList.remove("lose");
             document.getElementById("losepopup").classList.add("visible-lose");
         }
@@ -105,4 +107,20 @@ enter.addEventListener("click", function () {
 var backspace = document.getElementById("backspace");
 backspace.addEventListener("click", function () {
     rmvchar();
+});
+document.addEventListener("keydown", function (key) {
+    var pressed = key["key"];
+    if (pressed == "Enter") {
+        check();
+    }
+    else if (pressed == "Backspace") {
+        rmvchar();
+    }
+    else {
+        rows.forEach(function (element) {
+            if (element.includes(pressed.toLowerCase())) {
+                addletter(pressed);
+            }
+        });
+    }
 });

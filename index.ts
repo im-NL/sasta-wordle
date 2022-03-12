@@ -64,7 +64,9 @@ function check() {
                             word_guessed = word_guessed.replace(checker.innerHTML.toLowerCase(), "")
                             checkword = checkword.replace(checker.innerHTML.toLowerCase(), "")
                     } else {
-                        key.classList.add("notpresent")
+                        if(!(key.classList.contains("present")) && !(key.classList.contains("correct"))) {
+                            key.classList.add("notpresent")
+                        }
                     }
                 }
                 if(correct_count == 5) {                    

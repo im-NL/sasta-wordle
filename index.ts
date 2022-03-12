@@ -43,15 +43,22 @@ function check() {
             word_guessed += checker.innerHTML
         }
     }
+    console.log(guesses)
     var valid = isvalid(word_guessed)
     if(spaces_filled==5) {
-        if(guesses<6) {
+        if(guesses<7) {
             if (valid) {
                 let correct_count = 0
                 let checkword = word
                 for(let i=1; i<6; i++) {
                     let checker = document.getElementById("guess" + guesses + "char" + i)
                     let key = document.getElementById(checker.innerHTML.toLowerCase() + "-key")
+                    if(checker.innerHTML==null) {
+                        document.getElementById("loseword").innerHTML = "You lost....The word was " + "<b>" +word + "</b>"
+                        document.getElementById("losepopup").classList.remove("lose")
+                        document.getElementById("losepopup").classList.add("visible-lose")
+                        return 
+                    }
                     if(checker.innerHTML.toLowerCase() == word[i-1]) {
                         checker.classList.add("correct")
                         key.classList.add("correct")
@@ -64,7 +71,6 @@ function check() {
                     let checker = document.getElementById("guess" + guesses + "char" + i)
                     let key = document.getElementById(checker.innerHTML.toLowerCase() + "-key")
                     if(checkword.includes(checker.innerHTML.toLowerCase())){
-                        console.log(word_guessed)
                         checker.classList.add("present")
                         key.classList.add("present")
                         word_guessed = word_guessed.replace(checker.innerHTML.toLowerCase(), "")
@@ -82,7 +88,14 @@ function check() {
                     document.getElementById("winpopup").classList.remove("win")
                     document.getElementById("winpopup").classList.add("visible-win")
                 }
+                if(correct_count!=5 && guesses===6) {
+                    document.getElementById("loseword").innerHTML = "You lost....The word was " + "<b>" +word + "</b>"
+                    document.getElementById("losepopup").classList.remove("lose")
+                    document.getElementById("losepopup").classList.add("visible-lose")
+                }
                 guesses +=1 
+
+
             } else {
                 let popup = document.getElementById("popup")
                 popup.classList.add("popup") 

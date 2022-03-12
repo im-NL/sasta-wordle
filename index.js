@@ -53,7 +53,11 @@ function check() {
                         checkword = checkword.replace(checker.innerHTML.toLowerCase(), "");
                         correct_count += 1;
                     }
-                    else if (checkword.includes(checker.innerHTML.toLowerCase())) {
+                }
+                for (var i = 1; i < 6; i++) {
+                    var checker = document.getElementById("guess" + guesses + "char" + i);
+                    var key = document.getElementById(checker.innerHTML.toLowerCase() + "-key");
+                    if (checkword.includes(checker.innerHTML.toLowerCase())) {
                         console.log(word_guessed);
                         checker.classList.add("present");
                         key.classList.add("present");

@@ -57,18 +57,26 @@ function check() {
                         key.classList.add("correct")
                         checkword = checkword.replace(checker.innerHTML.toLowerCase(), "")
                         correct_count += 1 
-                    } else if(checkword.includes(checker.innerHTML.toLowerCase())){
-                            console.log(word_guessed)
-                            checker.classList.add("present")
-                            key.classList.add("present")
-                            word_guessed = word_guessed.replace(checker.innerHTML.toLowerCase(), "")
-                            checkword = checkword.replace(checker.innerHTML.toLowerCase(), "")
+                    }
+                }
+
+                for(let i=1; i<6; i++) {
+                    let checker = document.getElementById("guess" + guesses + "char" + i)
+                    let key = document.getElementById(checker.innerHTML.toLowerCase() + "-key")
+                    if(checkword.includes(checker.innerHTML.toLowerCase())){
+                        console.log(word_guessed)
+                        checker.classList.add("present")
+                        key.classList.add("present")
+                        word_guessed = word_guessed.replace(checker.innerHTML.toLowerCase(), "")
+                        checkword = checkword.replace(checker.innerHTML.toLowerCase(), "")
                     } else {
                         if(!(key.classList.contains("present")) && !(key.classList.contains("correct"))) {
                             key.classList.add("notpresent")
                         }
                     }
                 }
+
+
                 if(correct_count == 5) {                    
                     document.getElementById("word").innerHTML = "The word was " + "<b>" +word + "</b>"
                     document.getElementById("winpopup").classList.remove("win")

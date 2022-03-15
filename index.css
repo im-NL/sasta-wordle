@@ -27,8 +27,8 @@ body {
     text-align: center;
     width: 100%;
     border-bottom: solid 1px black;
-    font: 20px;
-    height: 25px;
+    font-size: xx-large;
+    height: fit-content;
 }
 
 .nav h3 {
@@ -46,11 +46,12 @@ body {
     color: white;
     margin: 1px;
     border: solid 2px black;
-    width: 30px;
-    height: 30px;
+    width: 80px;
+    height: 80px;
     text-transform: uppercase;
     justify-content: center;
     align-items: center;
+    font-size: xx-large;
 }
 
 .keyboard {
@@ -61,11 +62,12 @@ body {
 .keyboard div button {
     background-color: transparent;
     color: white;
-    height: 30px;
-    width: 30px;
+    height: 70px;
+    width: 70px;
     border: solid 1px rgba(17, 17, 17, 1);
     border-radius: 5px;
     margin: 1px;
+    font-size:x-large;
 }
 
 #submit, #backspace {
@@ -75,7 +77,9 @@ body {
     border-radius: 5px;
     margin-inline: 10px;
     margin-top: 5px;
-    width: fit-content
+    width: fit-content + 50px;
+    height: 40px;
+    font-size: large;
 }
 
 .funcbuttons {

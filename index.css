@@ -206,3 +206,20 @@ body {
 .losemessage span a on:hover{
     color: #AEC6CF;
 }
+
+@media only screen and (max-width:740px) {
+    .keyboard div button {
+        background-color: transparent;
+        color: white;
+        height: 50px;
+        width: 50px;
+        border: solid 1px rgba(17, 17, 17, 1);
+        border-radius: 5px;
+        margin: 1px;
+        font-size:large;
+    }
+
+    #submit {
+        width: fit-content;
+    }
+}

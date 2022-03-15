@@ -5,10 +5,10 @@ html {
     background-color: #121213;
     font-family: Arial, Helvetica, sans-serif;
 }
-
+/* 
 body {
     touch-action: none;
-  }
+  } */
 
 .present {
     background-color: #b59f3b !important; 

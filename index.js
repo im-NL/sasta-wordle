@@ -1,5 +1,5 @@
 var rows = ["qwertyuiop", "asdfghjkl", "zxcvbnm"];
-var word = "erina" // randWord();
+var word = randWord();
 console.log(word);
 var keyboard = document.getElementById("keyboard");
 var guesses = 1;
@@ -38,8 +38,7 @@ function check() {
             word_guessed += checker.innerHTML;
         }
     }
-    console.log(guesses);
-    var valid = true //isvalid(word_guessed);
+    var valid = isvalid(word_guessed);
     if (spaces_filled == 5) {
         if (guesses < 7) {
             if (valid) {

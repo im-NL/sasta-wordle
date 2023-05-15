@@ -4,6 +4,7 @@
 My first typescript project (compiled to js) 
 I'm pretty sure I haven't been using typescript properly and if there are any corrections anyone would want to make you can <a href="https://aryansharma.tech"> hit me up. </a>
 
+
 Listing what every file does right here:
 - index.ts => all the "ts" code I wrote (really just js in a typescript file) 
 - index.js => compiled code that I got by running ``tsc .\index.ts``
